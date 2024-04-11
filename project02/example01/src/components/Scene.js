@@ -24,10 +24,6 @@ const Scene = () => {
     getCitiesWeather();
   }, []);
 
-  useEffect(() => {
-    console.log('도시들 데이터', content);
-  }, [content]);
-
   return (
     <>
       <Earth position={[0, -2, 0]} />
