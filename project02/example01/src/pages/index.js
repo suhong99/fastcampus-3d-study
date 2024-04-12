@@ -1,5 +1,4 @@
 import { Canvas } from '@react-three/fiber';
-import Lights from '../components/Lights';
 import Scene from '../components/Scene';
 import { Suspense } from 'react';
 import { Loader } from '@react-three/drei';
@@ -11,7 +10,6 @@ export function Home() {
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <color attach="background" args={['rgb(67,127,240) 100%)']}></color>
         <Suspense fallback={null}>
-          <Lights />
           <Scene />
         </Suspense>
       </Canvas>

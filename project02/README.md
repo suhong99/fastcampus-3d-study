@@ -1,4 +1,4 @@
-# 3D 인터랙티브 웹 개발 분야 이론 및 실습 강의 / 파트2 
+# 3D 인터랙티브 웹 개발 분야 이론 및 실습 강의 / 파트2
 
 # 3D 날씨 정보 웹 사이트
 
@@ -12,18 +12,53 @@
 
 ## Open API 활용 및 API KEY키 관리
 
-- [ ] 날씨 Open API 소개 및 API KEY 관리 (API, 환경변수)
-- [ ] 도시 날씨 데이터 호출 방법 학습 (fetch, promise)
-- [ ] API 데이터와 3D오브젝트 연동
-- [ ] 그룹 오브젝트 해당 오브젝트만 기억하기 (useMemo)
-- [ ] 비동기 데이터(3D 오브젝트, API 데이터) 로딩 처리하기 (suspense)
+- [x] 날씨 Open API 소개 및 API KEY 관리 (API, 환경변수)
+- [x] 도시 날씨 데이터 호출 방법 학습 (fetch, promise)
+- [x] API 데이터와 3D오브젝트 연동
+- [x] 그룹 오브젝트 해당 오브젝트만 기억하기 (useMemo)
+- [x] 비동기 데이터(3D 오브젝트, API 데이터) 로딩 처리하기 (suspense)
 
 ## 3D 오브젝트 애니메이션 구현
 
-- [ ] 3D오브젝트  회전 시키기 (useFrame)
-- [ ] 3D오브젝트들 아치 형태로 위치시키기
-- [ ] framer-motion-3D 라이브러리 소개
-- [ ] 3D오브젝트 호버시 크기 변경
+- [ ] 3D오브젝트 회전 시키기 (useFrame)
+
+```
+useFrame 훅은 R3F 환경에서 3D 렌더링 루프를 커스터마이징하고 각 프레임마다 어떤 동작을을 수행할 수 있게 해줌
+
+state : 현재 프레임의 상태 정보를 포함하는 객체
+delata : 마지막 프레임과 현제 프레임 사이의 시간 간격
+xrFrame : vr에서 사용
+```
+
+- [x] 3D오브젝트들 아치 형태로 위치시키기
+- [x] framer-motion-3D 라이브러리 소개
+  ```bash
+  npm i framer-motion-3d
+  // 공식 라이브러리 추천
+  ```
+- [x] 3D오브젝트 호버시 크기 변경
+
+```javascript
+<mesh
+  onClick={(e) => console.log('클릭')}
+  onContextMenu={(e) => console.log('콘텍스트 메뉴, 오른쪽 마우스 클릭')}
+  onDoubleClick={(e) => console.log('더블 클릭')}
+  onWheel={(e) => console.log('마우스 휠')}
+  onPointerUp={(e) => console.log('마우스에서 손 뗐을 때(위로)')}
+  onPointerDown={(e) => console.log('마우스 버튼을 눌렀을 때(아래로)')}
+  onPointerOver={(e) => console.log('포인터가 객체 위에 올라감')}
+  onPointerOut={(e) => console.log('포인터가 객체를 벗어남')}
+  onPointerEnter={(e) => console.log('포인터가 객체 내로 들어가는 타이밍')}
+  onPointerLeave={(e) => console.log('포인터가 객체에서 벗어나는 타이밍')}
+  onPointerMove={(e) => console.log('포인터가 객체내에서 이동 중')}
+  onPointerMissed={() => console.log('포인터가 객체내에서 잃어버림')}
+  onUpdate={(self) => console.log('프로퍼티가 업데이트됨')}
+/>
+```
+
+Raycasting : three.js 환경에서 3D 장면에서 사용자의 마우스가 가리키는 위치를 결정하는 방법  
+-> 가상의 광선을 던져서 그 광선이 교차하는 지점을 계산하는 과정
+R3F에서는 그저 Canvas를 선언하는 것만으로 적용됨
 
 ## Drei를 활용하여 인터랙티브 요소 제작
 
@@ -45,7 +80,6 @@
 - [ ] 구름 효과 넣기 (Cloud)
 - [ ] 별 효과 넣기 (Stars, Sparkles)
 
-
 ## 오류
 
 ```
@@ -61,7 +95,5 @@ env 파일에 추가 하세요.
 ```
 GENERATE_SOURCEMAP=false
 ```
-
-
 
 [완성본 링크] - (https://mr-chu-weather.netlify.app/)

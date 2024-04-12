@@ -1,14 +1,26 @@
-import { useLoader } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
+import { useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-function Earth(props) {
+function Earth() {
   const glb = useLoader(GLTFLoader, '/models/earth.glb');
-  //   console.log(glb);
-  glb.scene.position.x = 1;
-  glb.scene.rotation.y = 1;
+
+  const ref = useRef(null);
+  useFrame((state, delta) => {
+    // 점점 내려가는 효과
+    // state.camera.position.y -= delta * 0.1;
+
+    // 회전 효과
+    ref.current.rotation.y += delta * 0.1;
+  });
 
   return (
-    <mesh {...props}>
+    <mesh
+      scale={1.3}
+      rotation-x={-Math.PI / 2}
+      ref={ref}
+      position={[0, -1.5, 0]}
+    >
       <primitive object={glb.scene}></primitive>
     </mesh>
   );

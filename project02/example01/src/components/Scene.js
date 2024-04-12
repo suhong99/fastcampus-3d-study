@@ -3,6 +3,7 @@ import Earth from './Earth';
 import Weather from './Weather';
 import { getCityWeather } from '../utils/weatherApi';
 import { cities } from '../utils/cities';
+import Lights from './Lights';
 
 const API = process.env.REACT_APP_API_KEY;
 const Scene = () => {
@@ -26,11 +27,22 @@ const Scene = () => {
 
   return (
     <>
-      <Earth position={[0, -2, 0]} />
+      <Lights />
+      <Earth />
       {content?.map(({ city, weatherData }, i) => {
-        const position = [-1 + 0.5 * i, 0, 0];
+        const angle = (i / (content.length - 1)) * Math.PI;
+        const raduis = 2;
+        const x = raduis * Math.cos(angle);
+        const y = raduis * Math.sin(angle) - 1;
         const weather = weatherData.weather[0].main.toLowerCase();
-        return <Weather key={city} position={position} weather={weather} />;
+        return (
+          <Weather
+            key={city}
+            position={[x, y - 1, 0]}
+            rotaionY={i + 1}
+            weather={weather}
+          />
+        );
       })}
     </>
   );
