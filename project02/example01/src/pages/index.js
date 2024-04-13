@@ -8,7 +8,7 @@ export function Home() {
     <>
       {/* // r3f에서 자동을 카메라 렌더러 scene을 Canvas에서 선언해줌 */}
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <color attach="background" args={['rgb(67,127,240) 100%)']}></color>
+        <color attach="background" args={['rgb(67, 127, 240) 100%)']} />
         <Suspense fallback={null}>
           <Scene />
         </Suspense>

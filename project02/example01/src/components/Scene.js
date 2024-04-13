@@ -6,6 +6,7 @@ import { cities } from '../utils/cities';
 import Lights from './Lights';
 
 const API = process.env.REACT_APP_API_KEY;
+
 const Scene = () => {
   const [content, setContent] = useState();
 
@@ -33,13 +34,14 @@ const Scene = () => {
         const angle = (i / (content.length - 1)) * Math.PI;
         const raduis = 2;
         const x = raduis * Math.cos(angle);
-        const y = raduis * Math.sin(angle) - 1;
+        const y = raduis * Math.sin(angle);
         const weather = weatherData.weather[0].main.toLowerCase();
         return (
           <Weather
-            key={city}
-            position={[x, y - 1, 0]}
+            key={city + 'weather'}
+            position={[x, y - 1.5, 0]}
             rotaionY={i + 1}
+            cityName={city}
             weather={weather}
           />
         );
