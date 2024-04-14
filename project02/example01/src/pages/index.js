@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import Scene from '../components/Scene';
 import { Suspense } from 'react';
-import { Loader } from '@react-three/drei';
+import { Loader, OrbitControls } from '@react-three/drei';
 
 export function Home() {
   return (
@@ -12,6 +12,16 @@ export function Home() {
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
+        <OrbitControls
+          makeDefault
+          enablePan={false} // 좌우상하 카메라 이동 제한함
+          minDistance={2} // 카메라 최소 거리
+          maxDistance={15}
+          minAzimuthAngle={-Math.PI / 4} //좌우회전 제한
+          maxAzimuthAngle={Math.PI / 4}
+          minPolarAngle={Math.PI / 6} // 위 아래 제한
+          maxPolarAngle={Math.PI - Math.PI / 6}
+        />
       </Canvas>
       <Loader />
     </>

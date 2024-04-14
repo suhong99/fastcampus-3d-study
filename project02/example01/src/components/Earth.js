@@ -28,7 +28,7 @@ function Earth() {
         <primitive object={glb.scene}></primitive>
       </mesh>
       {isHover && (
-        <Html>
+        <Html center>
           <span className="rotation-icon">
             <img src="/icons/rotation.png" alt="icon" />
           </span>
