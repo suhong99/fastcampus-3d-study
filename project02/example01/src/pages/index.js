@@ -2,8 +2,13 @@ import { Canvas } from '@react-three/fiber';
 import Scene from '../components/Scene';
 import { Suspense } from 'react';
 import { Loader, OrbitControls } from '@react-three/drei';
+import { useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import AnimatedOutlet from '../components/AnimatedOutlet';
 
-export function Home() {
+function Home() {
+  const location = useLocation();
+
   return (
     <>
       {/* // r3f에서 자동을 카메라 렌더러 scene을 Canvas에서 선언해줌 */}
@@ -24,6 +29,11 @@ export function Home() {
         />
       </Canvas>
       <Loader />
+      <AnimatePresence>
+        <AnimatedOutlet key={location.pathname} />
+      </AnimatePresence>
     </>
   );
 }
+
+export default Home;

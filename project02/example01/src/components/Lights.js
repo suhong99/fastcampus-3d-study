@@ -1,10 +1,9 @@
-import { useHelper, Environment } from '@react-three/drei';
-import { useRef } from 'react';
-import { DirectionalLightHelper } from 'three';
+import { Environment } from '@react-three/drei';
+// import { useRef } from 'react';
 
 function Lights() {
-  const ref = useRef();
-  useHelper(ref, DirectionalLightHelper, 1, 'red');
+  // const ref = useRef();
+  // useHelper(ref, DirectionalLightHelper, 1, 'red');
   return (
     <>
       <Environment preset="forest" />
