@@ -1,6 +1,6 @@
-import { Html } from '@react-three/drei';
+import { Html, Sparkles } from '@react-three/drei';
 import { useFrame, useLoader } from '@react-three/fiber';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 function Earth() {
@@ -16,8 +16,22 @@ function Earth() {
     ref.current.rotation.y += delta * 0.1;
   });
 
+  useEffect(() => {
+    const bodyClassList = window?.document.body.classList;
+    if (isHover) {
+      bodyClassList.add('drag');
+    } else {
+      bodyClassList.remove('drag');
+    }
+
+    return () => {
+      bodyClassList.remove('drag');
+    };
+  }, [isHover]);
+
   return (
     <group position={[0, -1.5, 0]}>
+      <Sparkles position={[0, 2, 0]} count={100} />
       <mesh
         scale={1.3}
         rotation-x={-Math.PI / 2}
@@ -27,13 +41,11 @@ function Earth() {
       >
         <primitive object={glb.scene}></primitive>
       </mesh>
-      {isHover && (
-        <Html center>
-          <span className="rotation-icon">
-            <img src="/icons/rotation.png" alt="icon" />
-          </span>
-        </Html>
-      )}
+      <Html center>
+        <span className="rotation-icon">
+          <img src="/icons/rotation.png" alt="icon" />
+        </span>
+      </Html>
     </group>
   );
 }
