@@ -14,9 +14,6 @@ export const MainCanvas = () => {
   return (
     <Canvas
       gl={{ antialias: true }}
-      // shadows={{ enabled: true, type: THREE.PCFSoftShadowMap }}
-      // shadows={"basic"}
-      // shadows={"percentage"}
       shadows={'soft'}
       camera={{
         fov: 60,

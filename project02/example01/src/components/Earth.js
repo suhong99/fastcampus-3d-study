@@ -34,7 +34,7 @@ function Earth() {
       <Sparkles position={[0, 2, 0]} count={100} />
       <mesh
         scale={1.3}
-        rotation-x={-Math.PI / 2}
+        rotation-z={-Math.PI / 2}
         ref={ref}
         onPointerEnter={() => setHover(true)}
         onPointerOut={() => setHover(false)}
