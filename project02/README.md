@@ -1,14 +1,22 @@
 # 3D 인터랙티브 웹 개발 분야 이론 및 실습 강의 / 파트2
 
 # 3D 날씨 정보 웹 사이트
+폴더구조   
+![image](https://github.com/suhong99/fastcampus-3d-study/assets/120103909/63bbfbaa-f5d7-433a-8107-098d08b31ea0)   
 
+이미지
+![image](https://github.com/suhong99/fastcampus-3d-study/assets/120103909/4d910297-6406-4de5-8b90-646feeea903b)
+![image](https://github.com/suhong99/fastcampus-3d-study/assets/120103909/e27c2fc2-83ae-44b8-be25-752c0cce9be6)
+
+
+ 
 ## 3D 개발 환경 구현
 
-- [ ] 프로젝트 설명 및 개발 환경 설정 (vscode, github, r3f, node)
-- [ ] 기본 Scene 구성 (canvas, box)
-- [ ] 3D오브젝트 로드 방법 학습 (glb)
-- [ ] 지구 3D 오브젝트 구현
-- [ ] 날씨 3D오브젝트 구현 (해, 비, 구름, 미스트, 눈)
+- [x] 프로젝트 설명 및 개발 환경 설정 (vscode, github, r3f, node)
+- [x] 기본 Scene 구성 (canvas, box)
+- [x] 3D오브젝트 로드 방법 학습 (glb)
+- [x] 지구 3D 오브젝트 구현
+- [x] 날씨 3D오브젝트 구현 (해, 비, 구름, 미스트, 눈)
 
 ## Open API 활용 및 API KEY키 관리
 
@@ -20,7 +28,7 @@
 
 ## 3D 오브젝트 애니메이션 구현
 
-- [ ] 3D오브젝트 회전 시키기 (useFrame)
+- [x] 3D오브젝트 회전 시키기 (useFrame)
 
 ```
 useFrame 훅은 R3F 환경에서 3D 렌더링 루프를 커스터마이징하고 각 프레임마다 어떤 동작을을 수행할 수 있게 해줌
@@ -62,23 +70,23 @@ R3F에서는 그저 Canvas를 선언하는 것만으로 적용됨
 
 ## Drei를 활용하여 인터랙티브 요소 제작
 
-- [ ] Drei 라이브러리 간단 소개
-- [ ] html,css를 Canvas에 구현 (Html)
-- [ ] 카메라 인터랙션 구현 (Orbitcontrols)
-- [ ] 3D오브젝트 클릭시 포커스 및 아웃 (Bounds, useBounds)
+- [x] Drei 라이브러리 간단 소개
+- [x] html,css를 Canvas에 구현 (Html)
+- [x] 카메라 인터랙션 구현 (Orbitcontrols)
+- [x] 3D오브젝트 클릭시 포커스 및 아웃 (Bounds, useBounds)
 
 ## 리액트 라우터 돔을 활용한 페이지 이동
 
-- [ ] 리액트 라우터에 대한 이해
-- [ ] API 데이터에 따른 상세 페이지 5개 제작
-- [ ] 3D오브젝트 클릭시 해당 상세 페이지로 이동 시키기
-- [ ] 페이지 이동간 애니메이션 관리 (AnimatePresence)
+- [x] 리액트 라우터에 대한 이해
+- [x] API 데이터에 따른 상세 페이지 5개 제작
+- [x] 3D오브젝트 클릭시 해당 상세 페이지로 이동 시키기
+- [x] 페이지 이동간 애니메이션 관리 (AnimatePresence)
 
 ## 후처리 효과 및 실전 팁 바꾸기
 
-- [ ] 마우스 형태 바꾸기 (css)
-- [ ] 구름 효과 넣기 (Cloud)
-- [ ] 별 효과 넣기 (Stars, Sparkles)
+- [x] 마우스 형태 바꾸기 (css)
+- [x] 구름 효과 넣기 (Cloud)
+- [x] 별 효과 넣기 (Stars, Sparkles)
 
 ## 오류
 
@@ -96,4 +104,3 @@ env 파일에 추가 하세요.
 GENERATE_SOURCEMAP=false
 ```
 
-[완성본 링크] - (https://mr-chu-weather.netlify.app/)
