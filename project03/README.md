@@ -7,7 +7,8 @@
 - [x] 프로젝트 설명 (r3f, cannon)
 - [x] use-cannon 라이브러리 소개
       cannon : 물리엔진을 만들어주는 라이브러리 (rapier, p2도 잇음)
-- [ ] leva 라이브러리 소개
+- [x] leva 라이브러리 소개
+      gui로 옵션을 제어할 수 있어서 개발 효율성을 높일 수 있음
 - [ ] 물리 엔진 기본 1편 (useBox, useShpere, useCylinder, usePlane )
 - [ ] 물리 엔진 기본 2편 (useTrimesh, useConvexPolyhedron )
 
