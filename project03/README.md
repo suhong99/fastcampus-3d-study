@@ -6,25 +6,37 @@
 
 - [x] 프로젝트 설명 (r3f, cannon)
 - [x] use-cannon 라이브러리 소개
-      cannon : 물리엔진을 만들어주는 라이브러리 (rapier, p2도 잇음)
+      cannon : 물리엔진을 만들어주는 라이브러리 (rapier, p2도 잇음)ㅇ
 - [x] leva 라이브러리 소개
       gui로 옵션을 제어할 수 있어서 개발 효율성을 높일 수 있음
-- [ ] 물리 엔진 기본 1편 (useBox, useShpere, useCylinder, usePlane )
-- [ ] 물리 엔진 기본 2편 (useTrimesh, useConvexPolyhedron )
+- [x] 물리 엔진 기본 1편 (useBox, useShpere, useCylinder, usePlane )
+- [x] 물리 엔진 기본 2편 (useTrimesh, useConvexPolyhedron )
 
 ## Cannon 활용 자동차 구현
 
-- [ ] 물리 엔진을 가진 자동차의 바디 만들기 (useBox)
-- [ ] 물리 엔진을 가진 바퀴 만들기 (useCompoundBody)
-- [ ] 키보드를 통한 바퀴 제어 로직 만들기
-- [ ] 물리엔진 Static, Kinematic, Dynamic 이해하기
-- [ ] useBox, useSphere로 충돌체 만들기 구체, 박스 (Dynamic)
-- [ ] 벽과 고정체 만들기 (Static)
-- [ ] 자동차를 따라다니는 카메라 만들기 (useThree)
+- [x] 물리 엔진을 가진 자동차의 바디 만들기 (useBox)
+- [x] 물리 엔진을 가진 바퀴 만들기 (useCompoundBody)  
+       여러개의 간단한 형태의 물체를 조합하여 하나의 복잡한 물체를 만들 수 있음
+- [x] 키보드를 통한 바퀴 제어 로직 만들기
+      레이싱카 로직을 쉽게 구현하는 useRaycastVehicle훅 사용
+- [x] 물리엔진 Static, Kinematic, Dynamic 이해하기
+      static : 움직이지 않음 (벽)  
+       Kineitc : 사용자가 조종하는 대상 혹은 물리 시뮬레이션에 영향을 받지 않는 대상  
+       Dynamic : 물리 시뮬레이션에 영향을 받는 대상(공)
+- [x] useBox, useSphere로 충돌체 만들기 구체, 박스 (Dynamic)
+- [x] 벽과 고정체 만들기 (Static)
+- [x] 자동차를 따라다니는 카메라 만들기 (useThree)
+      기본 렌더러, 씬, 카메라 등이 포함된 상태 모델에 접근할 수 있게 해줌.  
+       현재 캔버스의 크기를 스크린 및 뷰포트 좌표로 제공함
+      --> useFollowCam 훅
 
 ## 3D 오브젝트 실제 모델 적용하기
 
-- [ ] gltfjsx로 소개 및 glb 파일을 jsx로 변환하기
+- [x] gltfjsx로 소개 및 glb 파일을 jsx로 변환하기
+      gltf를 선언적이고 재사용 가능한 r3f jsx 컴포넌트로 변환시켜주는 유틸리티  
+       장점 : 쉬운 콘텐츠 수정 및 재사용성, 효율적인 그래프 최적화, 압축 옵션 제공  
+       npx gltfjsx car_taxi.glb --output ./CarBody.jsx
+
 - [ ] 자동차 바디 glb 모델로 적용하기
 - [ ] 자동차 바퀴 glb 모델로 적용하기
 - [ ] 충돌 모델 glb 모델로 적용하기
