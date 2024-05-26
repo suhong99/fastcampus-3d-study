@@ -4,13 +4,31 @@ import { Physics, Debug } from '@react-three/cannon';
 import Car from './Car';
 import { useRecoilValue } from 'recoil';
 import { isStartScene } from './utils/atom';
-import { useEffect } from 'react';
+import { Stats } from '@react-three/drei';
+import DrawCall from './components/DrawCall';
 
 function Scene() {
   const isStart = useRecoilValue(isStartScene);
-  useEffect(() => {
-    console.log(isStart);
-  }, [isStart]);
+
+  // // 사용하는 font 최적화
+  // useEffect(() => {
+  //   const fontData = fontjson;
+  //   const targetText = 'How to Play ↑←↓→';
+  //   const modifiedGlyphs = {};
+  //   for (let i = 0; i < targetText.length; i++) {
+  //     const char = targetText[i];
+  //     const charKey = char in fontData.glyphs ? char : char.toUpperCase();
+  //     if (charKey in fontData.glyphs) {
+  //       modifiedGlyphs[charKey] = fontData.glyphs[charKey];
+  //     }
+  //   }
+  //   const modifiedFontData = {
+  //     ...fontData,
+  //     glyphs: modifiedGlyphs,
+  //   };
+  //   console.log(JSON.stringify(modifiedFontData));
+  // }, []);
+
   return (
     <>
       <Canvas camera={{ fov: 45, position: [1.5, 2, 4] }}>
@@ -22,6 +40,8 @@ function Scene() {
             <Ground />
           </Debug>
         </Physics>
+        <DrawCall />
+        <Stats />
       </Canvas>
     </>
   );

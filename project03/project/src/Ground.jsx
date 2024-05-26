@@ -1,5 +1,4 @@
 import { usePlane } from '@react-three/cannon';
-import { Tree } from './components/Tree';
 import { Ball } from './components/Ball';
 import HowToPlay from './components/HowToPlay';
 import Banner from './components/Banner';
@@ -7,7 +6,9 @@ import { RoadSign } from './components/RoadSign';
 import { MotionStage } from './components/MotionStage';
 import { MotionStage2 } from './components/MotionStage2';
 import { Road } from './components/Road';
+import AllTree from './components/AllTree';
 
+//  1920px 기준 나무가 없을 때 86,  나무가 있을때 66 Alltree 78
 export function Ground() {
   const [meshRef] = usePlane(() => ({
     args: [15, 15],
@@ -24,16 +25,7 @@ export function Ground() {
       </mesh>
 
       {/* 나무 */}
-      <Tree position={[1, 0.5, -1]} />
-      <Tree position={[-1, 0.5, -1]} />
-      <Tree position={[3, 0.5, -1]} />
-      <Tree position={[-3, 0.5, -1]} />
-      <Tree position={[-6, 0.5, 0]} />
-      <Tree position={[-6, 0.5, -2]} />
-      <Tree position={[-6, 0.5, -4]} />
-      <Tree position={[-6, 0.5, -6]} />
-      <Tree position={[-6, 0.5, -8]} />
-      <Tree position={[-6, 0.5, -10]} />
+      <AllTree />
 
       <Ball position={[0, 0.2, -2]} />
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 
-useGLTF.preload('/assets/models/car_taxi.glb');
+useGLTF.preload('/assets/models/car-taxi.glb');
 
 export function CarBody() {
-  const { nodes, materials } = useGLTF('/assets/models/car_taxi.glb');
+  const { nodes, materials } = useGLTF('/assets/models/car-taxi.glb');
   return (
     <group
       scale={[0.34, 0.32, 0.46]}

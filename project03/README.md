@@ -57,10 +57,33 @@
 
 ## 프로젝트 최적화 알아보기
 
-- [ ] FPS 개념과 확인(stats)
-- [ ] 최적화 알아보기 (DrawCall)
-- [ ] Json 폰트 최적화
-- [ ] Webp로 텍스처 압축
-- [ ] 모델 최적화 (glb, Draco 압축)
+- [x] FPS 개념과 확인(stats)
+      drei stats로 확인가능  
+       FPS : 초당 렌더링되는 프레임수 (Frame Per Second) --> 높을수록  
+       Millseconds per frame : 한 프레임을 렌더링하는데 걸리는 시간 --> 작을수록  
+       Megabytes Used : 현재 웹페이지가 사용중인 메모리양  
+       statsGL : CPU와 GPU를 나타냄
+- [x] 최적화 알아보기 (DrawCall)
+      frame 드랍이 일어나는 이유는 하드웨어가 처리할 수 있는 것보다 훨씬 더 큰 워크로드를 생성하는 그래픽 설정때문임
 
-[완성본 링크] - (https://mr-chu-car-web.netlify.app/)
+      CPU가 GPU에게 그려라 명령하는 것을 Draw Call이라고 함.
+      보편적으로 상한치를 PC: 1000, Mobile : 100~200으로 잡음
+
+##### 최적화 방안
+
+1. 메시 병합 & Merged 컴퍼넌트
+   여러 메시를 렌더링하기 보단 drei의 Merged컴퍼넌트를 이용해 합쳐서 렌더링하기
+2. LOD(Level Of Detail)를 drei의 Detailed 컴퍼넌트로 적용
+   세부 수준이 높은 모델을 멀리서 볼 때 줄이는 기술
+
+- [x] Json 폰트 최적화
+      기존 폰트 json파일을 사용하지 않는 glyph를 제거
+- [x] Webp로 텍스처 압축
+- [x] 모델 최적화 (glb, Draco 압축)
+      draco : 구글에서 개발한 3d 그래픽 압축 라이브러리
+      ex : car_taxi 를 압축해서 152kb에서 42kb로
+
+```
+npm install -g gltf-pipeline
+gltf-pipeline -i car_taxi.glb -o car-taxi.glb -d
+```

@@ -1,9 +1,9 @@
 import { useGLTF } from '@react-three/drei';
 
-useGLTF.preload(`/assets/models/car_taxi.glb`);
+useGLTF.preload(`/assets/models/car-taxi.glb`);
 
 export const Wheel = ({ wheelRef, radius, rightSide }) => {
-  const { nodes, materials } = useGLTF(`/assets/models/car_taxi.glb`);
+  const { nodes, materials } = useGLTF(`/assets/models/car-taxi.glb`);
 
   return (
     <group ref={wheelRef} scale={radius * 10}>
