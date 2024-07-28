@@ -13,65 +13,69 @@ const AllTree = () => {
   );
   return (
     <Merged castShadow meshes={meshes}>
-      {(model) => (
-        <>
-          <Tree
-            position={[1, 0.5, -1]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-1, 0.5, -1]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[3, 0.5, -1]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-3, 0.5, -1]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, 0]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -2]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -4]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -6]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -6]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -8]}
-            model={model}
-            material={materials['Material.003']}
-          />
-          <Tree
-            position={[-6, 0.5, -10]}
-            model={model}
-            material={materials['Material.003']}
-          />
-        </>
-      )}
+      {(model) => {
+        console.log(model);
+
+        return (
+          <>
+            <Tree
+              position={[1, 0.5, -1]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-1, 0.5, -1]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[3, 0.5, -1]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-3, 0.5, -1]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, 0]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -2]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -4]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -6]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -6]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -8]}
+              model={model}
+              material={materials['Material.003']}
+            />
+            <Tree
+              position={[-6, 0.5, -10]}
+              model={model}
+              material={materials['Material.003']}
+            />
+          </>
+        );
+      }}
     </Merged>
   );
 };

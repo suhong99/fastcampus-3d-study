@@ -33,7 +33,7 @@ export const MotionStage = ({ position }) => {
           !stage
             ? {
                 opacity: 0.5,
-                y: [0.05, 0.5, 0.05],
+                y: [0.03, 1, 0.03],
                 transition: {
                   duration: 2,
                   ease: 'easeInOut',
@@ -74,8 +74,7 @@ export const MotionStage = ({ position }) => {
         <Picture nodes={nodes} texture={texture} />
         {stage ? (
           <Html center>
-            <div className="information enter">
-              <img src={`/assets/images/enter.png`} alt="enter" />
+            <div>
               <p>Enter</p>
             </div>
           </Html>
