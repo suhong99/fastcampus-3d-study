@@ -5,10 +5,9 @@ function pageExample02() {
   const canvas = document.querySelector('canvas');
   const context = canvas.getContext('2d');
 
-  canvas.width = 720;
-  canvas.height = 720;
-
   function drawHouse() {
+    canvas.width = 720;
+    canvas.height = 720;
     // lineWidth
     context.lineWidth = 10;
 
@@ -41,6 +40,50 @@ function pageExample02() {
   }
 
   // drawHouse();
+  canvas.width = 720;
+  canvas.height = 720;
+
+  const frameCount = 27;
+  const currentFrame = (index) =>
+    `assets/flower/flower_out${index.toString().padStart(4, '0')}.jpg`;
+
+  const img = new Image();
+  img.src = currentFrame(1);
+
+  img.onload = () => {
+    context.drawImage(img, 0, 0);
+  };
+
+  const updateImage = (index) => {
+    img.src = currentFrame(index);
+    context.drawImage(img, 0, 0);
+  };
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = html.scrollTop;
+    // 전체 스크롤 길이
+    const maxScrollTop = html.scrollHeight - window.innerHeight;
+    // 비율
+    const scrollFraction = scrollTop / maxScrollTop;
+
+    const frameIndex = Math.min(
+      frameCount - 1,
+      Math.ceil(scrollFraction * frameCount)
+    );
+    // 직접호출보다 성능이 좋음
+    requestAnimationFrame(() => updateImage(frameIndex + 1));
+  });
+
+  // 캐시를 통해서 성능향상
+  // 객체에 담는 방식보단 좋지 않음
+  const preloadImages = () => {
+    for (let i = 1; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+    }
+  };
+
+  preloadImages();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
