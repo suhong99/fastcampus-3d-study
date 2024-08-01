@@ -1,19 +1,20 @@
-@import "reset.css";
+@import 'reset.css';
 
 body {
   width: 100%;
-  background: #A59283;
-  font-family: "Pretendard", -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #a59283;
+  font-family: 'Pretendard', -apple-system, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-body.up header{
+body.up header {
   opacity: 1;
 }
 
-body.down header{
+body.down header {
   opacity: 0;
 }
 
@@ -33,24 +34,24 @@ header {
   transition: 300ms opacity ease-in-out;
 }
 
-header strong{
+header strong {
   display: block;
 }
 
-main{
+main {
   height: 100vh;
   width: 100%;
 }
 
-h1{
-  font-size: max(3.7500vw, 38px);
+h1 {
+  font-size: max(3.75vw, 38px);
   color: black;
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.5;
 }
 
-h3{
+h3 {
   font-size: max(2.2083vw, 32px);
   color: black;
   font-weight: 500;
@@ -58,11 +59,11 @@ h3{
   line-height: 1.5;
 }
 
-.scroll-container{
+.scroll-container {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #AD9A8C, #A59283);
+  background: linear-gradient(to right, #ad9a8c, #a59283);
   overflow-x: hidden;
 }
 
@@ -75,7 +76,7 @@ canvas {
   max-height: 100vh;
 }
 
-.section{
+.section {
   width: 100%;
   height: 100vh;
   background: transparent;
@@ -87,23 +88,23 @@ canvas {
   /* border: 1px solid green; */
 }
 
-.section.img-section{
+.section.img-section {
   width: 100%;
   height: 100%;
 }
 
-.text-section{
+.text-section {
   align-items: flex-start;
-  padding-top:  15rem;
+  padding-top: 15rem;
 }
 
-.text-section .title{ 
+.text-section .title {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.text-section .title p{ 
+.text-section .title p {
   padding-bottom: 0.5rem;
   font-size: max(1.4583vw, 18px);
   font-weight: 500;
@@ -113,22 +114,22 @@ canvas {
 
 /* section2 */
 
-.product-section{
+.product-section {
   overflow: hidden;
 }
 
-.product-explain .pviot{
+.product-explain .pviot {
   position: relative;
   display: flex;
 }
 
-.product-explain{
+.product-explain {
   display: block;
   position: absolute;
   right: 10%;
 }
 
-.product-explain .line{
+.product-explain .line {
   width: 100px;
   height: 100px;
   border-right: 5px solid #000526;
@@ -136,7 +137,7 @@ canvas {
   margin-bottom: 20px;
 }
 
-.product-explain .line span{
+.product-explain .line span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +150,7 @@ canvas {
   right: 0.5rem;
 }
 
-.product-explain .line span .dot{
+.product-explain .line span .dot {
   position: absolute;
   width: 2rem;
   height: 2rem;
@@ -161,12 +162,12 @@ canvas {
   opacity: 0.4;
 }
 
-.product-explain h3{
+.product-explain h3 {
   padding-bottom: 0.8rem;
   padding-left: 20px;
 }
 
-.product-explain p{
+.product-explain p {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -177,18 +178,17 @@ canvas {
 
 /* section3 시작 */
 
-
 /* section4 */
-.top-description{
+.top-description {
   display: flex;
   gap: 50px;
   margin-bottom: 20px;
 }
 
-.img-container{
+.img-container {
   width: 100%;
   height: 100%;
-  background-color: rgba(2,2,2,.2);
+  background-color: rgba(2, 2, 2, 0.2);
   border-radius: 0.6rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -201,29 +201,29 @@ canvas {
   }
 }
 
-.img-container img{
+.img-container img {
   width: 300px;
   height: 300px;
 }
 
-.card-wrapper { 
+.card-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 }
 
-.card { 
+.card {
   width: 100%;
-  opacity: 1; 
+  opacity: 1;
   padding: 32px 24px;
   border-radius: 0.6rem;
   background-color: #fff;
-  box-shadow: 0 1.6rem 4.8rem rgba(0,0,0,.22);
+  box-shadow: 0 1.6rem 4.8rem rgba(0, 0, 0, 0.22);
   border: 2px solid black;
 }
 
-.card h4 { 
+.card h4 {
   font-size: 22px;
   font-weight: 600;
   color: black;
@@ -231,14 +231,14 @@ canvas {
   margin-bottom: 1rem;
 }
 
-.card .content{
+.card .content {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 150%;
 }
 
-.card .button{
+.card .button {
   border: none;
   width: 100%;
   margin-top: 28px;
@@ -251,7 +251,7 @@ canvas {
   cursor: pointer;
 }
 
-.description{
+.description {
   border: 2px solid black;
   border-radius: 0.6rem;
   padding: 2rem;
@@ -265,13 +265,13 @@ canvas {
   color: #000526;
 }
 
-.description p{
+.description p {
   display: block;
 }
 
-.description button{
+.description button {
   cursor: pointer;
-  background:rgb(237, 35, 75);
+  background: rgb(237, 35, 75);
   margin-top: 1.5rem;
   padding: 0.55rem 1.2rem 0.5rem;
   border-radius: 4rem;
@@ -283,17 +283,17 @@ canvas {
   border: none;
 }
 
-h5{
+h5 {
   display: block;
   margin-bottom: 2rem;
   font-size: 42px;
 }
 
-.a11y{
+.a11y {
   display: none;
 }
 
-footer{
+footer {
   padding: 0 10rem;
   position: relative;
   z-index: 2;
@@ -304,34 +304,34 @@ footer{
   overflow: hidden;
 }
 
-footer .footer-logo{
-  line-height: 2.2rem
+footer .footer-logo {
+  line-height: 2.2rem;
 }
 
-footer label{
+footer label {
   display: inline-block;
   line-height: 4.4rem;
   color: #fff;
   margin-top: 2.4rem;
 }
 
-footer strong{
+footer strong {
   font-size: 16px;
   margin-right: 8px;
 }
 
-footer span{
+footer span {
   font-size: 12px;
 }
 
-footer .line{
+footer .line {
   width: 100%;
   height: 0.1rem;
   background-color: #919191;
   margin: 12px 0;
 }
 
-footer .footer-nav{
+footer .footer-nav {
   display: flex;
   font-size: 12px;
   font-weight: 400;
@@ -339,12 +339,12 @@ footer .footer-nav{
   margin-bottom: 12px;
 }
 
-footer .footer-nav li{
+footer .footer-nav li {
   display: flex;
 }
 
 footer .footer-nav li:not(:last-of-type)::after {
-  content: "";
+  content: '';
   display: block;
   width: 0.1rem;
   height: 12px;
@@ -352,8 +352,49 @@ footer .footer-nav li:not(:last-of-type)::after {
   margin: 0 1.2rem;
 }
 
-footer p{
+footer p {
   font-size: 12px;
   color: #919191;
   line-height: 22px;
+}
+
+.icon-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  /* border: 1px solid green; */
+}
+
+.icon-container img {
+  height: 300px;
+  scale: 1;
+  transform-origin: center;
+  width: auto;
+  position: absolute;
+}
+
+.icon-1 {
+  top: 10%;
+  left: -5%;
+}
+
+.icon-2 {
+  top: -15%;
+  right: 30%;
+}
+
+.icon-3 {
+  bottom: 10%;
+  right: 15%;
+}
+
+.icon-4 {
+  bottom: -10%;
+  left: 15%;
+}
+
+.icon-5 {
+  top: 33.3%;
+  right: -5%;
 }

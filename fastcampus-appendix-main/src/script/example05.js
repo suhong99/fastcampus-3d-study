@@ -1,47 +1,46 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger); 
+gsap.registerPlugin(ScrollTrigger);
 
-function pageExample05 () {
-  makeMainVideo()
-  makeSection()
+function pageExample05() {
+  makeMainVideo();
+  makeSection();
 }
 
 const makeMainVideo = () => {
   const html = document.documentElement;
-  const canvas = document.getElementById("scrollAnimation");
-  const context = canvas.getContext("2d");
+  const canvas = document.getElementById('scrollAnimation');
+  const context = canvas.getContext('2d');
   const frameCount = 129;
-  const currentFrame = index => (
-    `assets/img/dog_${index.toString().padStart(3, '0')}.jpg`
-  )
+  const currentFrame = (index) =>
+    `assets/img/dog_${index.toString().padStart(3, '0')}.jpg`;
 
-  const img = new Image()
+  const img = new Image();
   img.src = currentFrame(1);
 
   canvas.width = 1280;
   canvas.height = 740;
-  img.onload = () =>{
+  img.onload = () => {
     context.drawImage(img, 0, 0);
-  }
+  };
 
-  const updateImage = index => {
+  const updateImage = (index) => {
     img.src = currentFrame(index);
     context.drawImage(img, 0, 0);
-  }
+  };
 
-  window.addEventListener('scroll', () => {  
+  window.addEventListener('scroll', () => {
     const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollHeight - window.innerHeight
+    const maxScrollTop = html.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;
-    
+
     const frameIndex = Math.min(
-      frameCount -1,
+      frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
     );
-    
-    requestAnimationFrame(() => updateImage(frameIndex + 1))
+
+    requestAnimationFrame(() => updateImage(frameIndex + 1));
   });
 
   const preloadImages = () => {
@@ -51,48 +50,77 @@ const makeMainVideo = () => {
     }
   };
 
-  preloadImages()
-}
+  preloadImages();
+};
 
 const makeSection = () => {
-  const sections = document.querySelectorAll(".section");
-  const production = document.querySelector(".product-explain");
+  const sections = document.querySelectorAll('.section');
+  const production = document.querySelector('.product-explain');
 
-  const title = document.querySelector(".title");
+  const title = document.querySelector('.title');
 
   const tl = gsap.timeline({
     scrollTrigger: {
-        trigger: sections[1], 
-        pin: true,
-        scrub: 0.3,
-        start: "top top",
-        end: "+=300%",
-        // markers: true,
-        toggleActions: "play reverse play reverse"
-    }
+      trigger: sections[1],
+      pin: true,
+      scrub: 0.3,
+      start: 'top top',
+      end: '+=300%',
+      // markers: true,
+      toggleActions: 'play reverse play reverse',
+    },
   });
   tl.from(title, {
-      autoAlpha: 0,
-      duration: 2,
-      ease: "none"
+    autoAlpha: 0,
+    duration: 2,
+    ease: 'power3.inOut',
   });
-  
-  const t2 = gsap.timeline({
-      scrollTrigger: {
-          trigger: sections[2],
-          pin: true,
-          scrub: 0.3,
-          start: "top top",
-          end: "+=300%",
-      }
-  });
-  t2.from(production, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-  .to(production, { duration: 3 })
-  
-  gsap.to(production.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
-}
+  const t2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: sections[2],
+      pin: true,
+      scrub: 0.3,
+      start: 'top top',
+      end: '+=300%',
+    },
+  });
+  t2.from(production, {
+    x: '300%',
+    autoAlpha: 0,
+    duration: 2,
+    ease: 'none',
+    stagger: 3,
+  }).to(production, { duration: 3 });
+
+  gsap.to(production.querySelector('.dot'), {
+    duration: 1,
+    opacity: 1,
+    scale: 1.2,
+    repeat: Infinity,
+  });
+
+  const icons = document.querySelectorAll('.icon-container img');
+
+  gsap.set(icons[2], { rotateZ: 35 });
+  const t3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: sections[3],
+      start: 'top top',
+      end: '+=300%',
+      pin: true,
+      toggleActions: 'play reverse play reverse',
+    },
+    ease: 'elastic.inOut(1.2,0.75)',
+  });
+
+  t3.from(icons, {
+    opacity: 0,
+    scale: 0,
+    stagger: 0.04,
+  });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-  pageExample05()
-})
+  pageExample05();
+});
