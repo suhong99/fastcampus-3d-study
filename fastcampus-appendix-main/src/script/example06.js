@@ -22,10 +22,21 @@ const makeMainVideo = () => {
   const img = new Image();
   img.src = currentFrame(1);
 
-  canvas.width = 1280;
-  canvas.height = 740;
+  const viewPortWidth = window.innerWidth;
+  const viewPortHeight = window.innerHeight;
+
+  if (viewPortWidth <= 1024) {
+    canvas.width = 1024;
+    canvas.height = 720;
+  } else {
+    canvas.width = viewPortWidth;
+    canvas.height = viewPortHeight;
+  }
   img.onload = () => {
-    context.drawImage(img, 0, 0);
+    const x = (canvas.width - img.width) / 2;
+    const y = (canvas.height - img.height) / 2;
+
+    context.drawImage(img, x, y);
   };
 
   let loadedImages = {};
@@ -42,7 +53,12 @@ const makeMainVideo = () => {
 
   const updateImage = (index) => {
     const loadedImage = loadedImages[index];
-    if (loadedImage) context.drawImage(loadedImage, 0, 0);
+    if (loadedImage) {
+      const x = (canvas.width - img.width) / 2;
+      const y = (canvas.height - img.height) / 2;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(loadedImage, x, y);
+    }
   };
 
   window.addEventListener('scroll', () => {
