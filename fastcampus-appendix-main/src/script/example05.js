@@ -1,11 +1,14 @@
 import gsap from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function pageExample05() {
   makeMainVideo();
   makeSection();
+  makeHeader();
+  makeFooter();
 }
 
 const makeMainVideo = () => {
@@ -119,8 +122,59 @@ const makeSection = () => {
     scale: 0,
     stagger: 0.04,
   });
+
+  const imgSection = document.querySelector('.img-container');
+
+  const t4 = gsap.timeline();
+  t4.fromTo(
+    imgSection,
+    { y: 0 },
+    {
+      y: 0,
+      scale: 0.8,
+      duration: 2,
+      ease: 'power4.out',
+      scrollTrigger: {
+        pin: sections[4],
+        start: 'top center',
+        end: '+=10000',
+        scrub: true,
+        markers: true,
+        invalidateOnRefresh: true,
+      },
+    }
+  );
 };
 
+const makeHeader = () => {
+  const body = document.querySelector('body');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+      body.classList.remove('up');
+      return;
+    }
+
+    if (currentScroll > lastScroll && !body.classList.contains('dwon')) {
+      body.classList.remove('up');
+      body.classList.add('down');
+    } else if (currentScroll < lastScroll && body.classList.contains('dwon')) {
+      body.classList.remove('down');
+      body.classList.add('up');
+    }
+
+    lastScroll = currentScroll;
+  });
+};
+
+const makeFooter = () => {
+  const footerNav = document.querySelector('.footer-nav');
+  footerNav.querySelector('.nav-1').addEventListener('click', () => {
+    gsap.to(window, { duration: 1, scrollTo: '#TOP' });
+  });
+};
 document.addEventListener('DOMContentLoaded', () => {
   pageExample05();
 });
