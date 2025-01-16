@@ -39,7 +39,7 @@ export const Dancer = () => {
   const rectAreaLightRef = useRef(null);
   const hemisphereLightRef = useRef(null);
   const { actions } = useAnimations(animations, dancerRef); // useAnimations Hook으로 애니메이션 로드
-  // console.log(actions);
+  console.log(actions);
   const { positions } = useMemo(() => {
     const count = 500;
     const positions = new Float32Array(count * 3);
